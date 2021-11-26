@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Video Streaming from manget link</title>
+    <script>
+      function submitForm(event) {
+        const magnet = event.target.elements.magnet.value;
+        alert(magnet);
+        const video = document.createElement("video");
+        video.setAttribute("src", `localhost:8080/magnet/${magnet}`);
+        document.getElementById("videoContainer").appendChild(video);
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <!-- <form onsubmit="submitForm(event)">
+      <input id="magnet-input" name="magnet" type="text" />
+      <button type="submit">Submit</button>
+    </form> -->
+    <div id="videoContainer">
+      Video
+      <video
+        width="720"
+        id="vid"
+        src="encodeURI(/magnet/magnet:?xt=urn:btih:89599BF4DC369A3A8ECA26411C5CCF922D78B486&dn=Interstellar+%282014%29+%5B1080p%5D+%5BYTS.MX%5D&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337/124)"
+        muted
+        autoplay
+        controls
+      ></video>
+    </div>
+  </body>
+</html>
