@@ -62,6 +62,6 @@ app.get("/magnet/:magnet/:id/", (req, res) => {
   }, 2000);
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
   log("Listening on 8080.");
 });
