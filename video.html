@@ -6,31 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Node Video Streaming from manget link</title>
     <script>
-      function submitForm(event) {
-        const magnet = event.target.elements.magnet.value;
-        alert(magnet);
-        const video = document.createElement("video");
-        video.setAttribute("src", `localhost:8080/magnet/${magnet}`);
-        document.getElementById("videoContainer").appendChild(video);
-        return false;
-      }
+      window.onload = function () {
+        const magnet = encodeURI(
+          "/magnet/124/magnet%3A%3Fxt=urn:btih:6E88B3F25BA49D483D740A652BF013C341BC5373&dn=Interstellar+%282014%29+%5B720p%5D+%5BYTS.MX%5D&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337"
+        );
+        console.log(magnet);
+        const vide = document.getElementById("vid");
+        vide.setAttribute("src", magnet);
+        vide.load();
+        vide.play();
+      };
     </script>
   </head>
   <body>
-    <!-- <form onsubmit="submitForm(event)">
-      <input id="magnet-input" name="magnet" type="text" />
-      <button type="submit">Submit</button>
-    </form> -->
     <div id="videoContainer">
-      Video
-      <video
-        width="720"
-        id="vid"
-        src="encodeURI(/magnet/magnet:?xt=urn:btih:89599BF4DC369A3A8ECA26411C5CCF922D78B486&dn=Interstellar+%282014%29+%5B1080p%5D+%5BYTS.MX%5D&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337/124)"
-        muted
-        autoplay
-        controls
-      ></video>
+      <video width="720" id="vid" muted autoplay controls></video>
     </div>
   </body>
 </html>

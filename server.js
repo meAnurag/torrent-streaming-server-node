@@ -13,6 +13,8 @@ const app = express();
 
 const log = console.log;
 
+app.use(express.urlencoded({ extended: true }));
+
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => res.status(200).json({ message: "Sever Online." }));
@@ -25,10 +27,12 @@ let clients = {};
 let files = {};
 let streams = {};
 
-app.get("/magnet/:magnet/:id/", (req, res) => {
+app.get("/magnet/:id/:magnet", (req, res) => {
   let id = req.params.id;
   const range = req.headers.range;
   let magnet = req.params.magnet;
+  magnet = magnet.replace("%3A", ":").replace("%3F", "?");
+  log(1);
   log(magnet);
   if (!range) res.status(400).send("Require Range header!");
   let videoStream;
