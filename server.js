@@ -7,7 +7,7 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const CHUNK_SIZE = 50 ** 6; // 1MB
+const CHUNK_SIZE = 10 ** 6; // 1MB
 
 const app = express();
 
